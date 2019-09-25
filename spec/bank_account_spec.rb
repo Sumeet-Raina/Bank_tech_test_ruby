@@ -1,5 +1,8 @@
 require "bank_account"
 describe BankAccount do 
+
+  let (:transactions) { double :transactions }
+
   it "Bank account has balance" do
     expect(subject).to respond_to :balance
   end
@@ -9,7 +12,8 @@ describe BankAccount do
   end
 
   it "can be credited" do
-    expect(subject.credit(20)).to eq(subject.balance)
+    subject.credit(20)
+    expect(subject.balance).to eq(20)
   end
   
   it "can be debited" do
@@ -17,12 +21,12 @@ describe BankAccount do
     subject.debit(20)  # subtract balance
     expect(subject.balance).to eq(0) #balance = 0
   end
-  
-  it "has date for credit and debit method" do
-    time = Time.now.strftime("%d/%m/%Y")
-    expect(subject.date).to eq(time)
+
+  it 'returns the statement as a table' do
+    result = "Date || Credit || Debit || Balance\n#{Time.now.strftime('%d/%m/%Y')} || 1000.00 ||  || 1000.00\n#{Time.now.strftime('%d/%m/%Y')} ||  || 500.00 || 500.00\n"
+    subject.credit(1000)
+    subject.debit(500)
+    expect { subject.print_statement }.to output(result).to_stdout
   end
-
-
 
 end 
