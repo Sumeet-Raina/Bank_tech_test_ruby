@@ -13,8 +13,12 @@ describe BankAccount do
   end
   
   it "can be debited" do
-    expect(subject.debit(20)).to eq(subject.balance)
+    subject.credit(20) # add balance
+    subject.debit(20)  # subtract balance
+    expect(subject.balance).to eq(0) #balance = 0
   end
+
+
 
 
 end 
