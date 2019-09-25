@@ -11,4 +11,10 @@ describe BankAccount do
   it "can be credited" do
     expect(subject.credit(20)).to eq(subject.balance)
   end
+  
+  it "can be debited" do
+    expect(subject.debit(20)).to eq(subject.balance)
+  end
+
+
 end 
