@@ -7,4 +7,8 @@ describe BankAccount do
   it "has zero balance" do
     expect(subject.balance).to eq(0)
   end
+
+  it "can be credited" do
+    expect(subject.credit(20)).to eq(subject.balance)
+  end
 end 
