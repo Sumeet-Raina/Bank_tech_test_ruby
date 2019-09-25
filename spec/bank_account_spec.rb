@@ -1,8 +1,6 @@
 require "bank_account"
 describe BankAccount do 
 
-  let (:transactions) { double :transactions }
-
   it "Bank account has balance" do
     expect(subject).to respond_to :balance
   end
