@@ -17,7 +17,11 @@ describe BankAccount do
     subject.debit(20)  # subtract balance
     expect(subject.balance).to eq(0) #balance = 0
   end
-
+  
+  it "has date for credit and debit method" do
+    time = Time.now.strftime("%d/%m/%Y")
+    expect(subject.date).to eq(time)
+  end
 
 
 

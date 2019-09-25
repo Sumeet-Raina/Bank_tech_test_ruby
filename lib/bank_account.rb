@@ -1,9 +1,11 @@
 class BankAccount
 
-  attr_accessor :balance
+  attr_accessor :balance 
+  attr_reader   :date
 
   def initialize
     @balance = 0
+    @date = Time.now.strftime("%d/%m/%Y")
   end
 
   def credit(amount)
@@ -13,5 +15,6 @@ class BankAccount
   def debit(amount)
     @balance -= amount
   end
+  
 
 end
