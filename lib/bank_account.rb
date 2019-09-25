@@ -7,7 +7,7 @@ class BankAccount
   end
 
   def credit(amount)
-    @balance = @balance + amount 
+    @balance += amount 
   end
 
 end
