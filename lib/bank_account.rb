@@ -40,6 +40,4 @@ class BankAccount
     end
   end
 
-  "%.2f"
-
 end
