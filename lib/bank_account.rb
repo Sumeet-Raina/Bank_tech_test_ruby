@@ -11,7 +11,7 @@ class BankAccount
   end
 
   def debit(amount)
-    @balance = @balance - amount
+    @balance =- amount
   end
-  
+
 end
